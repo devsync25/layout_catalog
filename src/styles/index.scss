@@ -1,3 +1,200 @@
+$color-main-accent: #060b35;
+$color-secondary: #616070;
+$color-blue-accent: #00acdc;
+$color-gray: #f3f3f3;
+$color-hover-title: #34568b;
+$border-radius: 5px;
+$card-width: 200px;
+$card-height: 408px;
+
 body {
   margin: 0;
+  font-family: Roboto, sans-serif;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 50px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__logo-img {
+    display: block;
+  }
+
+  &__nav .header__list {
+    display: flex;
+    list-style: none;
+    & .header__item:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    & .header__link {
+      font-size: 12px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $color-blue-accent;
+      }
+
+      &.is-active {
+        color: $color-blue-accent;
+      }
+    }
+  }
+}
+
+.catalog {
+  padding: 50px 40px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+    gap: 46px 48px;
+    justify-content: center;
+
+    @media (min-width: 488px) {
+      grid-template-columns: repeat(2, $card-width);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, $card-width);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, $card-width);
+    }
+  }
+}
+
+.card {
+  width: $card-width;
+  border: 1px solid $color-gray;
+  border-radius: $border-radius;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &__image {
+    width: auto;
+    height: 132px;
+    object-fit: cover;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    margin: 33px 19px 0 19px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    color: $color-main-accent;
+    line-height: 18px;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    margin: 40px 16px 4px 16px;
+  }
+
+  &:hover .card__title {
+    color: $color-hover-title;
+  }
+
+  &__code {
+    font-size: 10px;
+    color: $color-secondary;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    margin: 4px 0 16px 16px;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    margin: 0 16px 10px 16px;
+  }
+
+  &__reviews {
+    font-size: 10px;
+    color: $color-secondary;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 400;
+    color: $color-main-accent;
+    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+    margin: 24px 16px 16px 16px;
+
+    &-value {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      color: $color-secondary;
+      margin-top: 3px;
+    }
+  }
+
+  &__buy {
+    display: block;
+    margin: 16px;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid $color-blue-accent;
+    border-radius: $border-radius;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background-color: $color-blue-accent;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #fff;
+      color: $color-blue-accent;
+    }
+  }
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+
+  &__star {
+    width: 16px;
+    height: 16px;
+    background-image: url('./../images/star.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.stars--1 .stars__star:nth-child(-n + 1),
+  &.stars--2 .stars__star:nth-child(-n + 2),
+  &.stars--3 .stars__star:nth-child(-n + 3),
+  &.stars--4 .stars__star:nth-child(-n + 4),
+  &.stars--5 .stars__star:nth-child(-n + 5) {
+    background-image: url('./../images/star-active.svg');
+  }
 }
