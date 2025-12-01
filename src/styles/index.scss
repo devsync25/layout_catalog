@@ -7,6 +7,9 @@ $color-hover-title: #34568b;
 $transition-duration: 0.3s;
 $border-radius: 5px;
 $card-width: 200px;
+$spacing-md: 16px;
+$font-size-xs: 10px;
+$font-size-sm: 12px;
 
 body {
   margin: 0;
@@ -45,7 +48,7 @@ a {
 
     & .header__link {
       color: $color-main-accent;
-      font-size: 12px;
+      font-size: $font-size-xs;
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -71,7 +74,6 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
     gap: 46px 48px;
-    justify-content: center;
 
     @media (min-width: 488px) {
       grid-template-columns: repeat(2, $card-width);
@@ -108,12 +110,12 @@ a {
   }
 
   &__title {
-    font-size: 12px;
+    font-size: $font-size-sm;
     font-weight: 500;
     color: $color-main-accent;
     line-height: 18px;
     /* stylelint-disable-next-line shorthand-property-no-redundant-values */
-    margin: 40px 16px 4px 16px;
+    margin: 40px $spacing-md 4px $spacing-md;
     transition: color $transition-duration;
   }
 
@@ -122,10 +124,10 @@ a {
   }
 
   &__code {
-    font-size: 10px;
+    font-size: $font-size-xs;
     color: $color-secondary;
     /* stylelint-disable-next-line shorthand-property-no-redundant-values */
-    margin: 4px 0 16px 16px;
+    margin: 4px 0 $spacing-md $spacing-md;
   }
 
   &__rating {
@@ -133,27 +135,27 @@ a {
     align-items: center;
     gap: 17px;
     /* stylelint-disable-next-line shorthand-property-no-redundant-values */
-    margin: 0 16px 10px 16px;
+    margin: 0 $spacing-md 10px $spacing-md;
   }
 
   &__reviews {
-    font-size: 10px;
+    font-size: $font-size-xs;
     color: $color-secondary;
   }
 
   &__price {
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: $font-size-sm;
     font-weight: 400;
     color: $color-main-accent;
     /* stylelint-disable-next-line shorthand-property-no-redundant-values */
-    margin: 24px 16px 16px 16px;
+    margin: 24px $spacing-md $spacing-md $spacing-md;
 
     &-value {
       display: inline-block;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: $spacing-md;
       color: $color-secondary;
       margin-top: 3px;
     }
@@ -187,8 +189,8 @@ a {
   gap: 4px;
 
   &__star {
-    width: 16px;
-    height: 16px;
+    width: $spacing-md;
+    height: $spacing-md;
     background-image: url('./../images/star.svg');
     background-size: cover;
     background-repeat: no-repeat;
